@@ -12,13 +12,38 @@ export const StressMap: React.FC<StressMapProps> = ({ farm, satelliteData }) => 
   const [activeLayer, setActiveLayer] = useState<'ndvi' | 'moisture'>('ndvi');
   const mapRef = useRef<HTMLDivElement>(null);
   const leafletMap = useRef<L.Map | null>(null);
+  const userLocation = useRef<{ latitude: number; longitude: number } | null>(null);
 
-  const center: [number, number] = farm?.latitude && farm?.longitude
-    ? [farm.latitude, farm.longitude]
-    : [28.6139, 77.2090];
+  const defaultCenter: [number, number] = [28.6139, 77.2090];
+
+  // Fetch geolocation once on mount and cache it
+  useEffect(() => {
+    if (!farm?.latitude && navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          userLocation.current = {
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+          };
+          // If the map already exists, update it immediately
+          if (leafletMap.current) {
+            const { latitude, longitude } = userLocation.current;
+            leafletMap.current.setView([latitude, longitude], 14);
+          }
+        },
+        (error) => console.warn('Geolocation error:', error)
+      );
+    }
+  }, []);
 
   useEffect(() => {
     if (!mapRef.current) return;
+
+    const center: [number, number] = farm?.latitude && farm?.longitude
+      ? [farm.latitude, farm.longitude]
+      : userLocation.current
+        ? [userLocation.current.latitude, userLocation.current.longitude]
+        : defaultCenter;
 
     const map = L.map(mapRef.current, {
       center,
@@ -47,14 +72,15 @@ export const StressMap: React.FC<StressMapProps> = ({ farm, satelliteData }) => 
       }).addTo(map);
       map.fitBounds(polygon.getBounds());
     } else {
-      // Default sample polygon for demo if no farm loaded
-      const sampleCoords: L.LatLngTuple[] = [
-        [28.6140, 77.2090],
-        [28.6150, 77.2100],
-        [28.6130, 77.2110],
-        [28.6120, 77.2100],
-      ];
+      // Sample polygon centered on user location or default
+      const loc = userLocation.current || { latitude: center[0], longitude: center[1] };
       const color = activeLayer === 'ndvi' ? '#0d631b' : '#00569f';
+      const sampleCoords: L.LatLngTuple[] = [
+        [loc.latitude + 0.0001, loc.longitude - 0.001],
+        [loc.latitude + 0.0011, loc.longitude],
+        [loc.latitude - 0.0009, loc.longitude + 0.002],
+        [loc.latitude - 0.0019, loc.longitude + 0.001],
+      ];
       const poly = L.polygon(sampleCoords, {
         color,
         fillColor: color,
@@ -62,27 +88,6 @@ export const StressMap: React.FC<StressMapProps> = ({ farm, satelliteData }) => 
         weight: 3,
       }).addTo(map);
       map.fitBounds(poly.getBounds());
-
-      // If no farm, try to get user's current location to center map and redraw sample polygon
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-          (position) => {
-            const { latitude, longitude } = position.coords;
-            map.setView([latitude, longitude], 14);
-            
-            // Move sample polygon to user's location
-            const userSampleCoords: L.LatLngTuple[] = [
-              [latitude + 0.0001, longitude - 0.001],
-              [latitude + 0.0011, longitude],
-              [latitude - 0.0009, longitude + 0.002],
-              [latitude - 0.0019, longitude + 0.001],
-            ];
-            poly.setLatLngs(userSampleCoords);
-            map.fitBounds(poly.getBounds());
-          },
-          (error) => console.warn('Geolocation error:', error)
-        );
-      }
     }
 
     return () => {
