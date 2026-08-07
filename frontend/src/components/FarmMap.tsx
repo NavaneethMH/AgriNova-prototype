@@ -136,6 +136,8 @@ export const FarmMap: React.FC<FarmMapProps> = ({
     }
 
     return () => {
+      map.off();
+      map.stop();
       map.remove();
     };
   }, []);

@@ -91,6 +91,8 @@ export const StressMap: React.FC<StressMapProps> = ({ farm, satelliteData }) => 
     }
 
     return () => {
+      map.off();
+      map.stop();
       map.remove();
     };
   }, [farm, activeLayer]);
