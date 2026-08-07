@@ -35,7 +35,7 @@ export const HistoricalAnalyticsPage: React.FC = () => {
     enabled: !!firstFarm?.id,
   });
 
-  const chartData = analytics?.data_points || [
+  const chartData = (analytics?.data_points && analytics.data_points.length > 0) ? analytics.data_points : [
     { date: 'Mon', ndvi: 0.65, ndwi: -0.05, stress_score: 22, temperature: 24, rainfall: 0 },
     { date: 'Tue', ndvi: 0.68, ndwi: -0.04, stress_score: 18, temperature: 26, rainfall: 2 },
     { date: 'Wed', ndvi: 0.62, ndwi: -0.08, stress_score: 35, temperature: 29, rainfall: 0 },
