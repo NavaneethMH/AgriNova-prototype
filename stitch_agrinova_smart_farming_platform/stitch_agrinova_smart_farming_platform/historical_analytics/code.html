@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AgriNova - Historical Analytics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#006eca",
+                        "inverse-surface": "#2d3133",
+                        "outline": "#707a6c",
+                        "on-surface-variant": "#40493d",
+                        "surface-tint": "#1b6d24",
+                        "secondary-fixed": "#98f994",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#f2f4f7",
+                        "on-primary-container": "#cbffc2",
+                        "on-secondary-fixed": "#002204",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#f7f9fc",
+                        "surface-bright": "#f7f9fc",
+                        "surface-container-high": "#e6e8eb",
+                        "inverse-primary": "#88d982",
+                        "on-primary-fixed-variant": "#005312",
+                        "on-primary-fixed": "#002204",
+                        "error-container": "#ffdad6",
+                        "primary": "#0d631b",
+                        "on-tertiary-fixed": "#001c3a",
+                        "surface-variant": "#e0e3e6",
+                        "tertiary-fixed-dim": "#a5c8ff",
+                        "primary-fixed-dim": "#88d982",
+                        "on-secondary-fixed-variant": "#005313",
+                        "on-tertiary-fixed-variant": "#004786",
+                        "on-surface": "#191c1e",
+                        "tertiary": "#00569f",
+                        "secondary-container": "#98f994",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#d4e3ff",
+                        "primary-fixed": "#a3f69c",
+                        "on-background": "#191c1e",
+                        "surface-container": "#eceef1",
+                        "surface-container-highest": "#e0e3e6",
+                        "background": "#f7f9fc",
+                        "surface-dim": "#d8dadd",
+                        "primary-container": "#2e7d32",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#7ddc7a",
+                        "surface-container-lowest": "#ffffff",
+                        "outline-variant": "#bfcaba",
+                        "on-secondary-container": "#0c7521",
+                        "inverse-on-surface": "#eff1f4",
+                        "secondary": "#006e1c",
+                        "on-tertiary-container": "#ebf1ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sidebar-width": "280px",
+                        "gutter": "16px",
+                        "base": "8px",
+                        "container-padding": "24px",
+                        "section-gap": "32px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(0, 0, 0, 0.05); }
+    </style>
+</head>
+<body class="bg-background text-on-background h-full font-body-md overflow-x-hidden md:pl-sidebar-width pt-16 md:pt-0 pb-24 md:pb-0">
+<!-- TopAppBar (Web) -->
+<header class="hidden md:flex fixed top-0 w-full z-50 justify-between items-center px-gutter h-16 bg-surface/80 backdrop-blur-md border-b border-outline-variant/30 shadow-sm">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:bg-primary/10 transition-colors p-2 rounded-full">menu</span>
+<span class="text-headline-md font-headline-md font-bold text-primary">AgriNova</span>
+</div>
+<div class="flex items-center gap-6">
+<nav class="flex gap-6">
+<a class="text-on-surface-variant text-label-md font-label-md hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="text-on-surface-variant text-label-md font-label-md hover:text-primary transition-colors" href="#">My Farms</a>
+<a class="text-primary font-bold text-label-md font-label-md hover:bg-primary/10 transition-colors px-3 py-1 rounded-full bg-primary/5" href="#">Analytics</a>
+<a class="text-on-surface-variant text-label-md font-label-md hover:text-primary transition-colors" href="#">Alerts</a>
+</nav>
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold">U</div>
+</div>
+</header>
+<!-- TopAppBar (Mobile) -->
+<header class="md:hidden fixed top-0 w-full z-50 flex justify-between items-center px-gutter h-16 bg-surface/80 backdrop-blur-md border-b border-outline-variant/30 shadow-sm">
+<span class="material-symbols-outlined text-primary">menu</span>
+<span class="text-headline-md font-headline-md font-bold text-primary">AgriNova</span>
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold">U</div>
+</header>
+<!-- Navigation Drawer (Sidebar - Web) -->
+<aside class="hidden md:flex fixed left-0 top-0 h-full z-[60] flex-col p-4 bg-surface border-r border-outline-variant/30 shadow-xl w-sidebar-width rounded-r-xl">
+<div class="flex items-center gap-4 mb-8 p-2">
+<div class="w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold text-headline-md">A</div>
+<div>
+<div class="text-headline-md font-headline-md text-primary">AgriNova AI</div>
+<div class="text-label-sm text-on-surface-variant">Precision Ag Intelligence</div>
+</div>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 p-3 rounded-lg text-on-surface-variant hover:bg-surface-variant/50 transition-all hover:translate-x-1" href="#"><span class="material-symbols-outlined">dashboard</span> <span class="text-label-md font-label-md">Dashboard</span></a>
+<a class="flex items-center gap-3 p-3 rounded-lg text-on-surface-variant hover:bg-surface-variant/50 transition-all hover:translate-x-1" href="#"><span class="material-symbols-outlined">agriculture</span> <span class="text-label-md font-label-md">My Farms</span></a>
+<a class="flex items-center gap-3 p-3 rounded-lg text-on-surface-variant hover:bg-surface-variant/50 transition-all hover:translate-x-1" href="#"><span class="material-symbols-outlined">water_drop</span> <span class="text-label-md font-label-md">Stress Analysis</span></a>
+<a class="flex items-center gap-3 p-3 rounded-lg text-on-surface-variant hover:bg-surface-variant/50 transition-all hover:translate-x-1" href="#"><span class="material-symbols-outlined">cloud_sync</span> <span class="text-label-md font-label-md">Weather</span></a>
+<a class="flex items-center gap-3 p-3 rounded-lg text-on-surface-variant hover:bg-surface-variant/50 transition-all hover:translate-x-1" href="#"><span class="material-symbols-outlined">psychology</span> <span class="text-label-md font-label-md">Recommendations</span></a>
+<a class="flex items-center gap-3 p-3 rounded-lg bg-primary-container text-on-primary-container font-semibold transition-all hover:translate-x-1" href="#"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">insights</span> <span class="text-label-md font-label-md">Analytics</span></a>
+<a class="flex items-center gap-3 p-3 rounded-lg text-on-surface-variant hover:bg-surface-variant/50 transition-all hover:translate-x-1" href="#"><span class="material-symbols-outlined">notifications</span> <span class="text-label-md font-label-md">Notifications</span></a>
+<a class="flex items-center gap-3 p-3 rounded-lg text-on-surface-variant hover:bg-surface-variant/50 transition-all hover:translate-x-1 mt-auto" href="#"><span class="material-symbols-outlined">settings</span> <span class="text-label-md font-label-md">Settings</span></a>
+</nav>
+</aside>
+<!-- Main Content -->
+<main class="p-container-padding max-w-7xl mx-auto space-y-section-gap pt-24 md:pt-8">
+<!-- Header & Filters -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+<div>
+<h1 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg text-on-surface">Historical Analytics</h1>
+<p class="text-body-md text-on-surface-variant mt-1">Deep dive into seasonal trends and performance metrics.</p>
+</div>
+<div class="flex gap-4 w-full md:w-auto">
+<select class="h-12 border border-outline-variant rounded-lg bg-surface px-4 text-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary flex-1 md:w-48">
+<option>North Field (Sector A)</option>
+<option>South Valley</option>
+<option>East Ridge</option>
+</select>
+<select class="h-12 border border-outline-variant rounded-lg bg-surface px-4 text-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary flex-1 md:w-32">
+<option>Last 12 Months</option>
+<option>Last Quarter</option>
+<option>YTD</option>
+</select>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Water Consumption (Area Chart) -->
+<div class="glass-card rounded-xl p-6 md:col-span-8 shadow-sm hover:shadow-md transition-shadow duration-300 relative overflow-hidden group">
+<div class="flex justify-between items-center mb-6">
+<h2 class="text-headline-md font-headline-md text-on-surface">Water Consumption Trends</h2>
+<span class="material-symbols-outlined text-outline-variant">more_vert</span>
+</div>
+<div class="h-64 relative flex items-end">
+<!-- Faux Area Chart -->
+<svg class="w-full h-full absolute inset-0 z-0" preserveaspectratio="none" viewbox="0 0 100 100">
+<path d="M0 100 L0 50 Q 15 30 25 45 T 50 60 T 75 30 T 100 40 L 100 100 Z" fill="rgba(46, 125, 50, 0.1)" stroke="none"></path>
+<path d="M0 50 Q 15 30 25 45 T 50 60 T 75 30 T 100 40" fill="none" stroke="#2e7d32" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+</svg>
+<!-- Grid Lines -->
+<div class="absolute inset-0 flex flex-col justify-between z-10 pointer-events-none opacity-20">
+<div class="border-t border-outline-variant w-full"></div>
+<div class="border-t border-outline-variant w-full"></div>
+<div class="border-t border-outline-variant w-full"></div>
+<div class="border-t border-outline-variant w-full"></div>
+</div>
+</div>
+<!-- X-Axis Labels -->
+<div class="flex justify-between text-label-sm text-on-surface-variant mt-2 px-1">
+<span>Jan</span><span>Mar</span><span>May</span><span>Jul</span><span>Sep</span><span>Nov</span>
+</div>
+</div>
+<!-- Yield Estimates (Bar Chart) -->
+<div class="glass-card rounded-xl p-6 md:col-span-4 shadow-sm hover:shadow-md transition-shadow duration-300">
+<div class="flex justify-between items-center mb-6">
+<h2 class="text-headline-md font-headline-md text-on-surface">Yield Estimates</h2>
+<span class="material-symbols-outlined text-outline-variant">bar_chart</span>
+</div>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between text-label-sm mb-1 text-on-surface-variant"><span>Current Season (Est.)</span> <span class="font-bold text-primary">8.4 t/ha</span></div>
+<div class="w-full bg-surface-variant rounded-full h-2 overflow-hidden">
+<div class="bg-primary h-2 rounded-full" style="width: 85%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-label-sm mb-1 text-on-surface-variant"><span>Previous Season</span> <span>7.9 t/ha</span></div>
+<div class="w-full bg-surface-variant rounded-full h-2 overflow-hidden">
+<div class="bg-outline h-2 rounded-full" style="width: 75%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-label-sm mb-1 text-on-surface-variant"><span>Historical Avg</span> <span>7.2 t/ha</span></div>
+<div class="w-full bg-surface-variant rounded-full h-2 overflow-hidden">
+<div class="bg-outline-variant h-2 rounded-full" style="width: 65%"></div>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-4 border-t border-outline-variant/30 text-center">
+<span class="text-display-lg font-display-lg text-primary">+6.3%</span>
+<p class="text-label-sm text-on-surface-variant mt-1">Projected increase vs last year</p>
+</div>
+</div>
+<!-- Stress Trends (Multi-line) -->
+<div class="glass-card rounded-xl p-6 md:col-span-12 shadow-sm hover:shadow-md transition-shadow duration-300 relative overflow-hidden">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+<h2 class="text-headline-md font-headline-md text-on-surface">Stress Trends: NDVI vs Moisture</h2>
+<div class="flex gap-4">
+<div class="flex items-center gap-2"><div class="w-3 h-3 rounded-full bg-primary"></div><span class="text-label-sm text-on-surface-variant">NDVI Index</span></div>
+<div class="flex items-center gap-2"><div class="w-3 h-3 rounded-full bg-tertiary"></div><span class="text-label-sm text-on-surface-variant">Soil Moisture</span></div>
+</div>
+</div>
+<div class="h-64 relative w-full">
+<!-- Faux Multi-line Chart -->
+<svg class="w-full h-full absolute inset-0 z-0" preserveaspectratio="none" viewbox="0 0 100 100">
+<path d="M0 60 Q 15 50 25 70 T 50 40 T 75 80 T 100 30" fill="none" stroke="#0d631b" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+<path d="M0 80 Q 20 70 30 40 T 60 90 T 80 50 T 100 60" fill="none" stroke="#00569f" stroke-dasharray="4 4" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+</svg>
+<!-- Grid Lines -->
+<div class="absolute inset-0 flex flex-col justify-between z-10 pointer-events-none opacity-10">
+<div class="border-t border-outline-variant w-full"></div>
+<div class="border-t border-outline-variant w-full"></div>
+<div class="border-t border-outline-variant w-full"></div>
+<div class="border-t border-outline-variant w-full"></div>
+<div class="border-t border-outline-variant w-full"></div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 px-4 pb-safe bg-surface/90 backdrop-blur-lg border-t border-outline-variant/20 shadow-lg rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-label-sm font-label-sm mt-1">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">agriculture</span>
+<span class="text-label-sm font-label-sm mt-1">My Farms</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 scale-110 duration-200 transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<span class="text-label-sm font-label-sm mt-1">Analytics</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">notifications</span>
+<span class="text-label-sm font-label-sm mt-1">Alerts</span>
+</a>
+</nav>
+</body></html>

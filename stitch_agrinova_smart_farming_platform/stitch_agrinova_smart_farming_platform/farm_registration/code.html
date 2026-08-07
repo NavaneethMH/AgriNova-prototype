@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Register Your Farm - AgriNova</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-container": "#006eca",
+                      "inverse-surface": "#2d3133",
+                      "outline": "#707a6c",
+                      "on-surface-variant": "#40493d",
+                      "surface-tint": "#1b6d24",
+                      "secondary-fixed": "#98f994",
+                      "on-error": "#ffffff",
+                      "surface-container-low": "#f2f4f7",
+                      "on-primary-container": "#cbffc2",
+                      "on-secondary-fixed": "#002204",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "surface": "#f7f9fc",
+                      "surface-bright": "#f7f9fc",
+                      "surface-container-high": "#e6e8eb",
+                      "inverse-primary": "#88d982",
+                      "on-primary-fixed-variant": "#005312",
+                      "on-primary-fixed": "#002204",
+                      "error-container": "#ffdad6",
+                      "primary": "#0d631b",
+                      "on-tertiary-fixed": "#001c3a",
+                      "surface-variant": "#e0e3e6",
+                      "tertiary-fixed-dim": "#a5c8ff",
+                      "primary-fixed-dim": "#88d982",
+                      "on-secondary-fixed-variant": "#005313",
+                      "on-tertiary-fixed-variant": "#004786",
+                      "on-surface": "#191c1e",
+                      "tertiary": "#00569f",
+                      "secondary-container": "#98f994",
+                      "on-primary": "#ffffff",
+                      "tertiary-fixed": "#d4e3ff",
+                      "primary-fixed": "#a3f69c",
+                      "on-background": "#191c1e",
+                      "surface-container": "#eceef1",
+                      "surface-container-highest": "#e0e3e6",
+                      "background": "#f7f9fc",
+                      "surface-dim": "#d8dadd",
+                      "primary-container": "#2e7d32",
+                      "on-error-container": "#93000a",
+                      "error": "#ba1a1a",
+                      "secondary-fixed-dim": "#7ddc7a",
+                      "surface-container-lowest": "#ffffff",
+                      "outline-variant": "#bfcaba",
+                      "on-secondary-container": "#0c7521",
+                      "inverse-on-surface": "#eff1f4",
+                      "secondary": "#006e1c",
+                      "on-tertiary-container": "#ebf1ff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "sidebar-width": "280px",
+                      "gutter": "16px",
+                      "base": "8px",
+                      "container-padding": "24px",
+                      "section-gap": "32px"
+              },
+              "fontFamily": {
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 4px 24px -4px rgba(46, 125, 50, 0.08);
+        }
+
+        .input-field {
+            @apply w-full h-12 px-4 rounded-lg border border-outline-variant bg-surface focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-200 outline-none text-body-md font-body-md text-on-surface;
+        }
+
+        .select-field {
+            @apply w-full h-12 px-4 rounded-lg border border-outline-variant bg-surface focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-200 outline-none appearance-none text-body-md font-body-md text-on-surface;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23707a6c' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 0.5rem center;
+            background-repeat: no-repeat;
+            background-size: 1.5em 1.5em;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col md:flex-row pb-24 md:pb-0">
+<!-- TopAppBar (Mobile & Desktop) -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-gutter h-16 bg-surface/80 dark:bg-inverse-surface/80 backdrop-blur-md border-b border-outline-variant/30 shadow-sm md:hidden">
+<button class="text-on-surface-variant hover:bg-primary/10 transition-colors p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_back</span>
+</button>
+<h1 class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed">AgriNova</h1>
+<div class="w-10 h-10 rounded-full bg-surface-variant overflow-hidden border border-outline-variant flex items-center justify-center text-primary font-bold">
+            U
+        </div>
+</header>
+<!-- NavigationDrawer (Desktop) -->
+<nav class="hidden md:flex flex-col fixed left-0 top-0 h-full z-[60] p-4 w-sidebar-width rounded-r-xl bg-surface dark:bg-inverse-surface border-r border-outline-variant/30 shadow-xl">
+<div class="flex items-center gap-4 mb-8 p-2">
+<div class="w-12 h-12 rounded-full bg-surface-variant overflow-hidden border border-outline-variant">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="A professional, modern vector-style avatar illustration of a farmer wearing a subtle green cap, set against a clean, light-mode white background. The style is flat, precise, and minimal, fitting perfectly within an enterprise-grade precision agriculture application dashboard. Crisp edges, no messy textures." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDM04Q1nTAFsmSAAEg3Z3hYFVxiX5VUqtn049KXvEuYQQKW24TxLbc4g7OiUXaTwtI2hwbgI29IjfuywlYCCiy4imbLYhIwc_LKJCtz1Pvd6_g2wGbfoeWVSvDiJV1IZt1nLNpF1I-dfppxkQGS6Roa_XC_9YCE90zyYU2ZSUGI_KhZdlLjcc19wfT8kW7zi-MmxT8O2buSe-W7yaaANZyIPlvQNl2zW0LLCCaJ_clrDSSkyoE7uBYm"/>
+</div>
+<div class="flex flex-col">
+<span class="text-headline-md font-headline-md text-primary font-bold">AgriNova AI</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Precision Ag Intelligence</span>
+</div>
+</div>
+<ul class="flex flex-col gap-2 flex-grow">
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-variant/50 hover:translate-x-1 transition-all ease-in-out duration-300" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-label-md font-label-md">Dashboard</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 bg-primary-container text-on-primary-container font-semibold rounded-lg hover:translate-x-1 transition-all ease-in-out duration-300" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">agriculture</span>
+<span class="text-label-md font-label-md">My Farms</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-variant/50 hover:translate-x-1 transition-all ease-in-out duration-300" href="#">
+<span class="material-symbols-outlined">water_drop</span>
+<span class="text-label-md font-label-md">Stress Analysis</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-variant/50 hover:translate-x-1 transition-all ease-in-out duration-300" href="#">
+<span class="material-symbols-outlined">cloud_sync</span>
+<span class="text-label-md font-label-md">Weather</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-variant/50 hover:translate-x-1 transition-all ease-in-out duration-300" href="#">
+<span class="material-symbols-outlined">psychology</span>
+<span class="text-label-md font-label-md">Recommendations</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-variant/50 hover:translate-x-1 transition-all ease-in-out duration-300" href="#">
+<span class="material-symbols-outlined">insights</span>
+<span class="text-label-md font-label-md">Analytics</span>
+</a>
+</li>
+</ul>
+<ul class="flex flex-col gap-2 mt-auto border-t border-outline-variant/30 pt-4">
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-variant/50 hover:translate-x-1 transition-all ease-in-out duration-300" href="#">
+<span class="material-symbols-outlined">notifications</span>
+<span class="text-label-md font-label-md">Notifications</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-variant/50 hover:translate-x-1 transition-all ease-in-out duration-300" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-label-md font-label-md">Settings</span>
+</a>
+</li>
+</ul>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow w-full md:ml-[280px] pt-20 md:pt-8 px-4 md:px-8 pb-8 flex flex-col items-center">
+<div class="w-full max-w-5xl">
+<!-- Header Section -->
+<div class="flex items-center gap-4 mb-8 hidden md:flex">
+<button class="text-on-surface-variant hover:bg-surface-variant/50 p-2 rounded-full transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_back</span>
+</button>
+<h2 class="text-headline-lg font-headline-lg text-on-surface">Register Your Farm</h2>
+</div>
+<div class="mb-6 md:hidden">
+<h2 class="text-headline-lg-mobile font-headline-lg-mobile text-on-surface">Register Your Farm</h2>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Step 1: Map Module (Left side, takes more space) -->
+<div class="lg:col-span-7 flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary text-label-sm font-label-sm font-bold">1</div>
+<h3 class="text-headline-md font-headline-md text-on-surface">Define Boundaries</h3>
+</div>
+<div class="glass-panel rounded-xl overflow-hidden relative h-[400px] lg:h-[500px] w-full flex flex-col">
+<!-- Map Image Placeholder -->
+<div class="absolute inset-0 bg-surface-container-low" data-alt="A top-down, high-resolution satellite imagery view of a patchwork of agricultural fields. The fields are rendered in varying shades of healthy, vivid green and earthy brown, demonstrating precision agriculture data mapping. A delicate, modern, semi-transparent white grid overlays the map, suggesting technological measurement and precision. Clean, bright, and professional." data-location="California" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBsccCP6s3cJ1prT4qh0tsvlDFzJYhL7WGAtGErtbERHpAkec2gjRKKNyKBfEcI5erxCcaDIECZ9PrPbrRWcvdHjpwc19U-RgMrXrc6FJUcq59gdZJ-Y4QyEkTTPGdz1fIyiLLIkz-81fwYQgCPsfWJSQ18SbBVjeT5GU74gfIyuqpZ7toKSeNyGjZ9Bb3doL83Ix-oMCSZLU6inMXdITZSuFkd3NT2s5ebVGcZobvvIy6LJbkHuJ1A')"></div>
+<!-- Map Controls -->
+<div class="absolute top-4 right-4 flex flex-col gap-2 z-10">
+<button class="bg-surface/90 backdrop-blur text-on-surface p-2 rounded-lg shadow-sm border border-outline-variant/30 hover:bg-surface hover:text-primary transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined">zoom_in</span>
+</button>
+<button class="bg-surface/90 backdrop-blur text-on-surface p-2 rounded-lg shadow-sm border border-outline-variant/30 hover:bg-surface hover:text-primary transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined">zoom_out</span>
+</button>
+<button class="bg-surface/90 backdrop-blur text-on-surface p-2 rounded-lg shadow-sm border border-outline-variant/30 hover:bg-surface hover:text-primary transition-colors flex items-center justify-center mt-4">
+<span class="material-symbols-outlined">my_location</span>
+</button>
+</div>
+<!-- Search & Draw Tools -->
+<div class="absolute top-4 left-4 z-10 w-[calc(100%-80px)] max-w-sm">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-on-surface-variant">search</span>
+<input class="w-full h-12 pl-10 pr-4 rounded-xl border border-outline-variant/30 bg-surface/90 backdrop-blur shadow-sm focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none text-body-md font-body-md text-on-surface" placeholder="Search Location..." type="text"/>
+</div>
+</div>
+<!-- Drawing Action Pill -->
+<div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-10">
+<button class="bg-surface/95 backdrop-blur-md px-6 py-3 rounded-full shadow-lg border border-outline-variant/30 flex items-center gap-2 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 group">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">draw</span>
+<span class="text-label-md font-label-md text-on-surface font-semibold">Draw Polygon</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Step 2: Form Module (Right side) -->
+<div class="lg:col-span-5 flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-variant border border-outline-variant flex items-center justify-center text-on-surface-variant text-label-sm font-label-sm font-bold">2</div>
+<h3 class="text-headline-md font-headline-md text-on-surface">Farm Details</h3>
+</div>
+<div class="glass-panel p-6 rounded-xl flex flex-col gap-5 h-full">
+<!-- Form Fields -->
+<div class="flex flex-col gap-2">
+<label class="text-label-md font-label-md text-on-surface-variant">Farm Name</label>
+<input class="input-field" placeholder="e.g. North Field Beta" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-2">
+<label class="text-label-md font-label-md text-on-surface-variant">Crop Type</label>
+<select class="select-field">
+<option disabled="" selected="" value="">Select Crop</option>
+<option value="corn">Corn (Maize)</option>
+<option value="wheat">Wheat</option>
+<option value="soybeans">Soybeans</option>
+</select>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-label-md font-label-md text-on-surface-variant">Soil Type</label>
+<select class="select-field">
+<option disabled="" selected="" value="">Select Soil</option>
+<option value="clay">Clay Loam</option>
+<option value="sandy">Sandy Loam</option>
+<option value="silt">Silt</option>
+</select>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-label-md font-label-md text-on-surface-variant">Planting Date</label>
+<div class="relative">
+<input class="input-field w-full" type="date"/>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">calendar_today</span>
+</div>
+</div>
+<!-- Auto-calculated Data -->
+<div class="mt-4 p-4 rounded-lg bg-surface-container border border-outline-variant/50 flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Calculated Area</span>
+<span class="text-headline-md font-headline-md text-on-surface font-semibold">-- ha</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface flex items-center justify-center text-primary/50">
+<span class="material-symbols-outlined">calculate</span>
+</div>
+</div>
+<div class="mt-auto pt-6 flex flex-col gap-4">
+<div class="w-full bg-surface-variant h-1 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-1/2 rounded-full"></div>
+</div>
+<button class="w-full bg-primary hover:bg-primary/90 text-on-primary h-12 rounded-xl flex items-center justify-center gap-2 text-label-md font-label-md transition-colors shadow-md shadow-primary/20">
+<span class="material-symbols-outlined text-[20px]">save</span>
+                                Save Farm
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 px-4 pb-safe bg-surface/90 dark:bg-inverse-surface/90 backdrop-blur-lg border-t border-outline-variant/20 shadow-lg md:hidden rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline hover:text-primary transition-colors w-16" href="#">
+<span class="material-symbols-outlined mb-1">dashboard</span>
+<span class="text-label-sm font-label-sm">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-full px-4 py-1 scale-110 duration-200 w-16" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">agriculture</span>
+<span class="text-label-sm font-label-sm">My Farms</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline hover:text-primary transition-colors w-16" href="#">
+<span class="material-symbols-outlined mb-1">analytics</span>
+<span class="text-label-sm font-label-sm">Analytics</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline hover:text-primary transition-colors w-16" href="#">
+<span class="material-symbols-outlined mb-1">notifications</span>
+<span class="text-label-sm font-label-sm">Alerts</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,64 @@
+version: '3.8'
+
+services:
+  # PostgreSQL 16 with PostGIS extension
+  db:
+    image: postgis/postgis:16-3.4
+    container_name: agrinova-db
+    environment:
+      POSTGRES_USER: agrinova_user
+      POSTGRES_PASSWORD: agrinova_password
+      POSTGRES_DB: agrinova
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ../database/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U agrinova_user -d agrinova"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # Redis for caching & task queue
+  redis:
+    image: redis:7-alpine
+    container_name: agrinova-redis
+    ports:
+      - "6379:6379"
+
+  # FastAPI Backend Service
+  backend:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.backend
+    container_name: agrinova-backend
+    environment:
+      - APP_NAME=AgriNova
+      - APP_ENV=production
+      - DEBUG=false
+      - SECRET_KEY=prod-secret-key-agrinova-precision-ag-2026
+      - DATABASE_URL=postgresql+asyncpg://agrinova_user:agrinova_password@db:5432/agrinova
+      - REDIS_URL=redis://redis:6379/0
+      - GEE_USE_SIMULATION=true
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_started
+
+  # Nginx + React Frontend
+  frontend:
+    build:
+      context: ../frontend
+      dockerfile: ../docker/Dockerfile.frontend
+    container_name: agrinova-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:

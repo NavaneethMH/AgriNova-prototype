@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AgriNova - Profile &amp; Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#006eca",
+                        "inverse-surface": "#2d3133",
+                        "outline": "#707a6c",
+                        "on-surface-variant": "#40493d",
+                        "surface-tint": "#1b6d24",
+                        "secondary-fixed": "#98f994",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#f2f4f7",
+                        "on-primary-container": "#cbffc2",
+                        "on-secondary-fixed": "#002204",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#f7f9fc",
+                        "surface-bright": "#f7f9fc",
+                        "surface-container-high": "#e6e8eb",
+                        "inverse-primary": "#88d982",
+                        "on-primary-fixed-variant": "#005312",
+                        "on-primary-fixed": "#002204",
+                        "error-container": "#ffdad6",
+                        "primary": "#0d631b",
+                        "on-tertiary-fixed": "#001c3a",
+                        "surface-variant": "#e0e3e6",
+                        "tertiary-fixed-dim": "#a5c8ff",
+                        "primary-fixed-dim": "#88d982",
+                        "on-secondary-fixed-variant": "#005313",
+                        "on-tertiary-fixed-variant": "#004786",
+                        "on-surface": "#191c1e",
+                        "tertiary": "#00569f",
+                        "secondary-container": "#98f994",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#d4e3ff",
+                        "primary-fixed": "#a3f69c",
+                        "on-background": "#191c1e",
+                        "surface-container": "#eceef1",
+                        "surface-container-highest": "#e0e3e6",
+                        "background": "#f7f9fc",
+                        "surface-dim": "#d8dadd",
+                        "primary-container": "#2e7d32",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#7ddc7a",
+                        "surface-container-lowest": "#ffffff",
+                        "outline-variant": "#bfcaba",
+                        "on-secondary-container": "#0c7521",
+                        "inverse-on-surface": "#eff1f4",
+                        "secondary": "#006e1c",
+                        "on-tertiary-container": "#ebf1ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "0.75rem", // 12px requested
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sidebar-width": "280px",
+                        "gutter": "16px",
+                        "base": "8px",
+                        "container-padding": "24px",
+                        "section-gap": "32px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background min-h-screen pt-16 pb-20 md:pb-0 md:pl-sidebar-width flex flex-col font-body-md text-body-md">
+<!-- NavigationDrawer (Desktop) -->
+<nav class="hidden md:flex bg-surface dark:bg-inverse-surface border-r border-outline-variant/30 shadow-xl fixed left-0 top-0 h-full z-[60] flex-col p-4 w-sidebar-width rounded-r-xl transition-all ease-in-out duration-300">
+<div class="flex items-center gap-3 mb-8 px-2">
+<img alt="User profile" class="w-10 h-10 rounded-full object-cover shadow-sm" data-alt="A small, professional portrait of a farmer in a modern agricultural setting, bright daylight, optimistic mood, clean white background style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzg1t0Skjj4oBRKiS3ly8E0MULJ9Hji4HnyMBs6rs-aY7cArS2ftI4sWOqunw6qdnhfzULGcLvumrfN-0kN8prc_yERAnCKp6jL_0_2TgvcLqVMpqBhMZyrqNa6geG8_mBy-GRx_lUGDhpCdhucjNKnOH8NptEQOshlUSs7EtzVX7jqJ3KFWFPiVTwr3Koo4r4C7P8YVmJL9Rinp8xyAwjWd64lml7hrKoRAp7TVqsgFR098b6I6KQ"/>
+<div>
+<h2 class="text-headline-md font-headline-md text-primary font-bold">AgriNova AI</h2>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Precision Ag Intelligence</p>
+</div>
+</div>
+<ul class="flex flex-col gap-2">
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 hover:translate-x-1 transition-transform rounded-lg text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                    Dashboard
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 hover:translate-x-1 transition-transform rounded-lg text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined">agriculture</span>
+                    My Farms
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 hover:translate-x-1 transition-transform rounded-lg text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined">water_drop</span>
+                    Stress Analysis
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 hover:translate-x-1 transition-transform rounded-lg text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined">cloud_sync</span>
+                    Weather
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 hover:translate-x-1 transition-transform rounded-lg text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined">psychology</span>
+                    Recommendations
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 hover:translate-x-1 transition-transform rounded-lg text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined">insights</span>
+                    Analytics
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 hover:translate-x-1 transition-transform rounded-lg text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined">notifications</span>
+                    Notifications
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 bg-primary-container text-on-primary-container font-semibold rounded-lg text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">settings</span>
+                    Settings
+                </a>
+</li>
+</ul>
+</nav>
+<!-- TopAppBar (Mobile) -->
+<header class="md:hidden bg-surface/80 dark:bg-inverse-surface/80 backdrop-blur-md fixed top-0 w-full z-50 flex justify-between items-center px-gutter h-16 shadow-sm border-b border-outline-variant/30 docked full-width top-0">
+<button class="text-on-surface-variant hover:bg-primary/10 transition-colors p-2 rounded-full opacity-80 scale-95 transition-all">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed">AgriNova</h1>
+<button class="hover:bg-primary/10 transition-colors p-1 rounded-full">
+<img alt="User profile avatar" class="w-8 h-8 rounded-full object-cover" data-alt="A small, professional portrait of a farmer in a modern agricultural setting, bright daylight, optimistic mood, clean white background style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6NUXMk8G6C0Vk1W_y8TPKz3jpKdv06FaTBwi90fSCkD9VgDWt_knDMbia_wxHIyXCxsMO3J9PkgQZUDXkrkNDh3S87hV7W13knyEOqLpsQq6LWWImeAHnQDAPHm-xzShKmK-DUtFz4cH7YftWMPf_go-UFTjHUBa1o6i_JekyMTxnho66ylZhn2BfjR_1usrV0FDlvV4zjdwzzHiC2ffq8w7ztqO2g8ZDjUCeFvgoExeBhHsnu-eJ"/>
+</button>
+</header>
+<!-- Main Content -->
+<main class="flex-1 p-container-padding max-w-4xl mx-auto w-full flex flex-col gap-section-gap">
+<!-- Profile Header -->
+<section class="flex flex-col items-center sm:items-start sm:flex-row gap-6 p-6 bg-surface-container-lowest rounded-2xl border border-outline-variant/20 shadow-[0_4px_24px_rgba(46,125,50,0.04)] backdrop-blur-sm">
+<div class="relative">
+<img alt="User profile" class="w-24 h-24 sm:w-32 sm:h-32 rounded-full object-cover shadow-md border-4 border-surface" data-alt="A highly detailed, professional headshot of a modern agricultural manager. Warm, natural sunlight highlighting a friendly yet serious expression. Clean, minimalist background with subtle out-of-focus green foliage. High resolution, corporate portrait style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCD4zjFFnGKpFhqhlKW798g7F3I4weZKIL7L7IMmSlLx2WWcuwC6prUQ4ANgXl8IqLH14yB0ourz8cBYvLclyoJ8xhDaxyJYpkIVckj1rwDay0ujgc16IEHvpghY0KsJBV3oxGQYEQ15tWsW681hw-LJ10_moo_Dqge5sxi6aUt5lfvkoL3nSJ-k99n_UWJE07p-VXJBHFzqRKwKP-nxkeJsjLXoT-Y8s5upn0zyxdeOp7STsEDBzru"/>
+<button class="absolute bottom-0 right-0 bg-primary text-on-primary p-2 rounded-full shadow-lg hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-sm">edit</span>
+</button>
+</div>
+<div class="flex flex-col items-center sm:items-start text-center sm:text-left pt-2">
+<h2 class="text-headline-lg font-headline-lg text-on-surface">Elena Rodriguez</h2>
+<p class="text-body-md font-body-md text-on-surface-variant mb-3">elena.r@agrinova.demo</p>
+<div class="inline-flex items-center gap-2 bg-secondary-container/30 border border-secondary-container text-secondary px-3 py-1 rounded-full text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+                    Enterprise Subscription
+                </div>
+</div>
+</section>
+<!-- Settings Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Farm Details -->
+<section class="bg-surface-container-lowest rounded-2xl border border-outline-variant/20 shadow-[0_4px_24px_rgba(46,125,50,0.04)] p-6">
+<h3 class="text-headline-md font-headline-md text-on-surface mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">agriculture</span>
+                    Farm Details
+                </h3>
+<ul class="flex flex-col gap-3">
+<li class="flex items-center justify-between p-3 bg-surface hover:bg-surface-variant/20 rounded-xl border border-outline-variant/10 transition-colors">
+<div>
+<p class="text-label-md font-label-md text-on-surface">North Valley Tract</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">1,200 Acres • Corn</p>
+</div>
+<button class="text-primary hover:bg-primary-container/10 p-2 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-sm">edit</span>
+</button>
+</li>
+<li class="flex items-center justify-between p-3 bg-surface hover:bg-surface-variant/20 rounded-xl border border-outline-variant/10 transition-colors">
+<div>
+<p class="text-label-md font-label-md text-on-surface">Riverbend East</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">850 Acres • Soybeans</p>
+</div>
+<button class="text-primary hover:bg-primary-container/10 p-2 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-sm">edit</span>
+</button>
+</li>
+<li>
+<button class="w-full flex items-center justify-center gap-2 p-3 text-primary border border-dashed border-primary/30 rounded-xl hover:bg-primary/5 transition-colors text-label-md font-label-md">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                            Add New Farm
+                        </button>
+</li>
+</ul>
+</section>
+<!-- Notification Preferences -->
+<section class="bg-surface-container-lowest rounded-2xl border border-outline-variant/20 shadow-[0_4px_24px_rgba(46,125,50,0.04)] p-6">
+<h3 class="text-headline-md font-headline-md text-on-surface mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">notifications_active</span>
+                    Notifications
+                </h3>
+<div class="flex flex-col gap-4">
+<label class="flex items-center justify-between cursor-pointer group">
+<div>
+<p class="text-label-md font-label-md text-on-surface">Push Notifications</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Instant alerts on your device</p>
+</div>
+<div class="relative">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</div>
+</label>
+<hr class="border-outline-variant/20"/>
+<label class="flex items-center justify-between cursor-pointer group">
+<div>
+<p class="text-label-md font-label-md text-on-surface">Email Summaries</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Daily digest of farm health</p>
+</div>
+<div class="relative">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</div>
+</label>
+<hr class="border-outline-variant/20"/>
+<label class="flex items-center justify-between cursor-pointer group">
+<div>
+<p class="text-label-md font-label-md text-on-surface">SMS Alerts</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Critical stress warnings</p>
+</div>
+<div class="relative">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</div>
+</label>
+</div>
+</section>
+<!-- Account Settings -->
+<section class="bg-surface-container-lowest rounded-2xl border border-outline-variant/20 shadow-[0_4px_24px_rgba(46,125,50,0.04)] p-6">
+<h3 class="text-headline-md font-headline-md text-on-surface mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">security</span>
+                    Account Settings
+                </h3>
+<ul class="flex flex-col gap-2">
+<li>
+<button class="w-full flex items-center justify-between p-3 bg-surface hover:bg-surface-variant/30 rounded-xl transition-colors">
+<span class="text-label-md font-label-md text-on-surface flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">password</span>
+                                Change Password
+                            </span>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</button>
+</li>
+<li>
+<button class="w-full flex items-center justify-between p-3 bg-surface hover:bg-surface-variant/30 rounded-xl transition-colors">
+<span class="text-label-md font-label-md text-on-surface flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">verified_user</span>
+                                Two-Factor Authentication
+                            </span>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</button>
+</li>
+<li>
+<button class="w-full flex items-center justify-between p-3 bg-surface hover:bg-surface-variant/30 rounded-xl transition-colors">
+<span class="text-label-md font-label-md text-on-surface flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">payment</span>
+                                Billing &amp; Invoices
+                            </span>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</button>
+</li>
+</ul>
+</section>
+<!-- Appearance & Misc -->
+<section class="bg-surface-container-lowest rounded-2xl border border-outline-variant/20 shadow-[0_4px_24px_rgba(46,125,50,0.04)] p-6 flex flex-col justify-between">
+<div>
+<h3 class="text-headline-md font-headline-md text-on-surface mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">palette</span>
+                        Appearance
+                    </h3>
+<div class="p-3 bg-surface rounded-xl border border-outline-variant/10 mb-6">
+<label class="flex items-center justify-between cursor-pointer group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant">dark_mode</span>
+<span class="text-label-md font-label-md text-on-surface">Dark Mode</span>
+</div>
+<div class="relative">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</div>
+</label>
+</div>
+</div>
+<div class="mt-auto pt-4 border-t border-outline-variant/20">
+<button class="w-full flex items-center justify-center gap-2 p-3 text-error hover:bg-error/10 rounded-xl transition-colors text-label-md font-label-md font-medium">
+<span class="material-symbols-outlined">logout</span>
+                        Logout
+                    </button>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden bg-surface/90 dark:bg-inverse-surface/90 backdrop-blur-lg fixed bottom-0 w-full rounded-t-xl border-t border-outline-variant/20 shadow-lg fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 px-4 pb-safe">
+<!-- Settings shouldn't show active here normally based on rules, but keeping default inactive state as it's not a top level destination for this shell -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-label-sm font-label-sm">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">agriculture</span>
+<span class="text-label-sm font-label-sm">My Farms</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-label-sm font-label-sm">Analytics</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">notifications</span>
+<span class="text-label-sm font-label-sm">Alerts</span>
+</a>
+</nav>
+</body></html>

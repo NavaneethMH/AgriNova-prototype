@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AgriNova - Smarter Farming from Space</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#006eca",
+                        "inverse-surface": "#2d3133",
+                        "outline": "#707a6c",
+                        "on-surface-variant": "#40493d",
+                        "surface-tint": "#1b6d24",
+                        "secondary-fixed": "#98f994",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#f2f4f7",
+                        "on-primary-container": "#cbffc2",
+                        "on-secondary-fixed": "#002204",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#f7f9fc",
+                        "surface-bright": "#f7f9fc",
+                        "surface-container-high": "#e6e8eb",
+                        "inverse-primary": "#88d982",
+                        "on-primary-fixed-variant": "#005312",
+                        "on-primary-fixed": "#002204",
+                        "error-container": "#ffdad6",
+                        "primary": "#0d631b",
+                        "on-tertiary-fixed": "#001c3a",
+                        "surface-variant": "#e0e3e6",
+                        "tertiary-fixed-dim": "#a5c8ff",
+                        "primary-fixed-dim": "#88d982",
+                        "on-secondary-fixed-variant": "#005313",
+                        "on-tertiary-fixed-variant": "#004786",
+                        "on-surface": "#191c1e",
+                        "tertiary": "#00569f",
+                        "secondary-container": "#98f994",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#d4e3ff",
+                        "primary-fixed": "#a3f69c",
+                        "on-background": "#191c1e",
+                        "surface-container": "#eceef1",
+                        "surface-container-highest": "#e0e3e6",
+                        "background": "#f7f9fc",
+                        "surface-dim": "#d8dadd",
+                        "primary-container": "#2e7d32",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#7ddc7a",
+                        "surface-container-lowest": "#ffffff",
+                        "outline-variant": "#bfcaba",
+                        "on-secondary-container": "#0c7521",
+                        "inverse-on-surface": "#eff1f4",
+                        "secondary": "#006e1c",
+                        "on-tertiary-container": "#ebf1ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sidebar-width": "280px",
+                        "gutter": "16px",
+                        "base": "8px",
+                        "container-padding": "24px",
+                        "section-gap": "32px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f7f9fc; color: #191c1e; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        .text-gradient {
+            background: linear-gradient(to right, #0d631b, #006e1c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen pb-20 md:pb-0">
+<!-- Top Navigation Shell (Hidden Nav since it's a Landing Page, just a simple header) -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-gutter h-16 bg-surface/80 backdrop-blur-md border-b border-outline-variant/30 shadow-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[28px]" data-icon="eco">eco</span>
+<span class="text-headline-md font-headline-md font-bold text-primary">AgriNova</span>
+</div>
+<button class="bg-primary-container text-on-primary-container px-4 py-2 rounded-lg text-label-md font-label-md hover:opacity-90 transition-opacity">
+            Login
+        </button>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-16">
+<!-- Hero Section -->
+<section class="relative min-h-[85vh] flex flex-col justify-end pb-12 px-gutter overflow-hidden rounded-b-3xl">
+<!-- Background Image -->
+<div class="absolute inset-0 z-0 bg-inverse-surface">
+<img alt="AgriNova Platform Dashboard" class="w-full h-full object-cover opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYPycq5MQqhxe_-ZyWYROG6QWlAyH9uWn9zedGNalnxsot26yWWKsGzHbYh_AGgTQnreEKRP0hmCajXPcZUU3OOv8a6-LZNYcY0zc0Nchaq9wgrr6wk4_6AofiH-ZM1SXa1juVXS9WmqHiwNTViXaSbtGRngWedGdjvkocvwPl2emy5tYOpBNvfyRvuor7QAxo377gCdiFps0FoHNxbu8ZCKpy9lBZgUHRu9gulOn4HPaInb04nsgN"/>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface via-inverse-surface/40 to-transparent"></div>
+</div>
+<!-- Hero Content -->
+<div class="relative z-10 space-y-6">
+<div class="inline-flex items-center gap-2 bg-surface/20 backdrop-blur-md border border-white/10 rounded-full px-3 py-1 mb-2">
+<span class="material-symbols-outlined text-secondary-fixed text-[16px]" data-icon="satellite_alt">satellite_alt</span>
+<span class="text-on-error text-label-sm font-label-sm uppercase tracking-wider">v2.0 Platform Live</span>
+</div>
+<h1 class="text-display-lg font-display-lg text-white leading-tight">
+                    Smarter Farming<br/>
+<span class="text-secondary-fixed">from Space</span>
+</h1>
+<p class="text-body-lg font-body-lg text-surface-container-low max-w-md">
+                    Transform complex satellite and sensor data into actionable intelligence. Maximize yield with enterprise-grade precision agriculture.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4 pt-4">
+<button class="w-full sm:w-auto bg-primary-container text-on-primary-container px-8 py-4 rounded-xl text-label-md font-label-md font-bold shadow-lg hover:scale-[1.02] transition-transform flex justify-center items-center gap-2">
+                        Get Started <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<button class="w-full sm:w-auto bg-transparent border border-outline-variant text-white px-8 py-4 rounded-xl text-label-md font-label-md hover:bg-white/5 transition-colors flex justify-center items-center gap-2 backdrop-blur-sm">
+                        View Demo <span class="material-symbols-outlined" data-icon="play_circle">play_circle</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Features Grid -->
+<section class="py-section-gap px-gutter bg-surface">
+<div class="text-center mb-10">
+<h2 class="text-headline-lg-mobile font-headline-lg-mobile text-on-surface mb-2">Core Intelligence</h2>
+<p class="text-body-md font-body-md text-on-surface-variant">Precision tools built for modern agriculture.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<!-- Feature 1 -->
+<div class="glass-card p-6 rounded-2xl">
+<div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 text-primary">
+<span class="material-symbols-outlined text-[28px]" data-icon="water_drop">water_drop</span>
+</div>
+<h3 class="text-body-lg font-body-lg font-semibold text-on-surface mb-2">Moisture Detection</h3>
+<p class="text-body-md font-body-md text-on-surface-variant">Real-time soil hydration analysis powered by deep soil penetrating radar.</p>
+</div>
+<!-- Feature 2 -->
+<div class="glass-card p-6 rounded-2xl">
+<div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 text-primary">
+<span class="material-symbols-outlined text-[28px]" data-icon="satellite">satellite</span>
+</div>
+<h3 class="text-body-lg font-body-lg font-semibold text-on-surface mb-2">Satellite Monitoring</h3>
+<p class="text-body-md font-body-md text-on-surface-variant">Daily multispectral imagery updates identifying crop stress before it's visible.</p>
+</div>
+<!-- Feature 3 -->
+<div class="glass-card p-6 rounded-2xl">
+<div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 text-primary">
+<span class="material-symbols-outlined text-[28px]" data-icon="cloud_sync">cloud_sync</span>
+</div>
+<h3 class="text-body-lg font-body-lg font-semibold text-on-surface mb-2">Weather Intelligence</h3>
+<p class="text-body-md font-body-md text-on-surface-variant">Hyper-local forecasting models integrated directly with your field topology.</p>
+</div>
+</div>
+</section>
+<!-- AI Tech Visual Section -->
+<section class="py-section-gap bg-inverse-surface overflow-hidden">
+<div class="px-gutter text-center mb-8 relative z-10">
+<h2 class="text-headline-lg-mobile font-headline-lg-mobile text-white mb-4">Powered by Neural Ag</h2>
+<p class="text-body-md font-body-md text-surface-variant max-w-lg mx-auto">Our proprietary AI scans millions of data points daily to deliver pinpoint recommendations.</p>
+</div>
+<div class="relative h-64 w-full px-gutter">
+<div class="absolute inset-0 bg-gradient-to-r from-inverse-surface via-transparent to-inverse-surface z-10 pointer-events-none"></div>
+<!-- Simulating a tech scanning visualization -->
+<div class="w-full h-full rounded-2xl overflow-hidden relative border border-outline-variant/20 shadow-2xl">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A highly detailed, cinematic visualization of a digital scan sweeping over a lush green farm field. Glowing neon green grid lines and data nodes overlay the organic crops, illustrating advanced AI analysis. The lighting is dramatic, combining natural sunlight with high-tech glowing elements, creating a modern, precise, and sophisticated mood." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAzDGmZqOZMeCqCqZIPOmx9dAj0X9n-ucWGugwXV2lhbP95orh0geKSDsdAckd6hScrVhM-A_1u1phPyw_leUSC13B_10kzvCjRvxyF3BNRghWJKxTMa-wrQaElEqLfyVDU2rwvEprVCRFcHBfsA-o__zvkEyUejDPtUEe3mOQO-urvtXuRWcWAL5wYdn4M3Fl_m6Xz2GlatyKFHr-X9YE9GHUzaDA6cBDyiRjL9YJ0mfHLIO8xuINd')"></div>
+<!-- Scanning Line Effect -->
+<div class="absolute top-0 left-0 w-full h-1 bg-secondary-fixed shadow-[0_0_15px_#98f994] animate-[scan_3s_ease-in-out_infinite]"></div>
+<style>
+                         @keyframes scan {
+                             0%, 100% { transform: translateY(0); opacity: 0; }
+                             10%, 90% { opacity: 1; }
+                             50% { transform: translateY(256px); }
+                         }
+                     </style>
+</div>
+</div>
+</section>
+<!-- Benefits & Value -->
+<section class="py-section-gap px-gutter bg-surface">
+<div class="flex flex-col gap-6">
+<div class="bg-surface-container rounded-2xl p-6 flex items-start gap-4">
+<div class="mt-1 w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[18px]" data-icon="trending_up">trending_up</span>
+</div>
+<div>
+<h4 class="text-body-lg font-body-lg font-bold text-on-surface mb-1">Maximize Yield</h4>
+<p class="text-body-md font-body-md text-on-surface-variant">Increase output by up to 15% through data-driven planting and harvesting schedules.</p>
+</div>
+</div>
+<div class="bg-surface-container rounded-2xl p-6 flex items-start gap-4">
+<div class="mt-1 w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[18px]" data-icon="opacity">opacity</span>
+</div>
+<div>
+<h4 class="text-body-lg font-body-lg font-bold text-on-surface mb-1">Optimize Irrigation</h4>
+<p class="text-body-md font-body-md text-on-surface-variant">Reduce water usage significantly by applying resources exactly where and when needed.</p>
+</div>
+</div>
+<div class="bg-surface-container rounded-2xl p-6 flex items-start gap-4">
+<div class="mt-1 w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[18px]" data-icon="shield">shield</span>
+</div>
+<div>
+<h4 class="text-body-lg font-body-lg font-bold text-on-surface mb-1">Reduce Risk</h4>
+<p class="text-body-md font-body-md text-on-surface-variant">Early warning systems for disease, pests, and adverse weather events protect your investment.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Pricing Tiers -->
+<section class="py-section-gap px-gutter bg-surface-container-low">
+<div class="text-center mb-10">
+<h2 class="text-headline-lg-mobile font-headline-lg-mobile text-on-surface mb-2">Scalable Solutions</h2>
+<p class="text-body-md font-body-md text-on-surface-variant">Plans designed for farms of all sizes.</p>
+</div>
+<div class="flex flex-col gap-6">
+<!-- Pro Tier (Highlighted) -->
+<div class="bg-inverse-surface rounded-3xl p-8 relative overflow-hidden shadow-xl border border-secondary/30">
+<div class="absolute top-0 right-0 bg-secondary-fixed text-on-secondary-fixed px-4 py-1 rounded-bl-xl text-label-sm font-label-sm font-bold">Most Popular</div>
+<h3 class="text-headline-md font-headline-md text-white mb-2">Pro</h3>
+<div class="flex items-baseline gap-1 mb-6">
+<span class="text-display-lg font-display-lg text-secondary-fixed">$299</span>
+<span class="text-body-md font-body-md text-surface-variant">/mo</span>
+</div>
+<ul class="space-y-4 mb-8">
+<li class="flex items-center gap-3 text-surface-container-low text-body-md font-body-md">
+<span class="material-symbols-outlined text-secondary-fixed text-[20px]" data-icon="check_circle">check_circle</span> Up to 1,000 Acres
+                        </li>
+<li class="flex items-center gap-3 text-surface-container-low text-body-md font-body-md">
+<span class="material-symbols-outlined text-secondary-fixed text-[20px]" data-icon="check_circle">check_circle</span> Daily Satellite Scans
+                        </li>
+<li class="flex items-center gap-3 text-surface-container-low text-body-md font-body-md">
+<span class="material-symbols-outlined text-secondary-fixed text-[20px]" data-icon="check_circle">check_circle</span> AI Yield Prediction
+                        </li>
+</ul>
+<button class="w-full bg-secondary-fixed text-on-secondary-fixed py-4 rounded-xl text-label-md font-label-md font-bold hover:bg-white transition-colors">Start Free Trial</button>
+</div>
+<!-- Starter Tier -->
+<div class="glass-card rounded-3xl p-8 border border-outline-variant/30">
+<h3 class="text-headline-md font-headline-md text-on-surface mb-2">Starter</h3>
+<div class="flex items-baseline gap-1 mb-6">
+<span class="text-headline-lg font-headline-lg text-primary">$99</span>
+<span class="text-body-md font-body-md text-on-surface-variant">/mo</span>
+</div>
+<button class="w-full bg-surface-container text-on-surface py-3 rounded-xl text-label-md font-label-md font-semibold hover:bg-surface-variant transition-colors border border-outline-variant/50">Select Plan</button>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface py-8 px-gutter border-t border-outline-variant/20">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="eco">eco</span>
+<span class="text-headline-md font-headline-md font-bold text-on-surface">AgriNova</span>
+</div>
+<div class="grid grid-cols-2 gap-8 mb-8">
+<div>
+<h4 class="text-label-md font-label-md font-bold text-on-surface mb-4">Platform</h4>
+<ul class="space-y-3">
+<li><a class="text-body-md font-body-md text-on-surface-variant hover:text-primary" href="#">Features</a></li>
+<li><a class="text-body-md font-body-md text-on-surface-variant hover:text-primary" href="#">Pricing</a></li>
+<li><a class="text-body-md font-body-md text-on-surface-variant hover:text-primary" href="#">API</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-label-md font-label-md font-bold text-on-surface mb-4">Company</h4>
+<ul class="space-y-3">
+<li><a class="text-body-md font-body-md text-on-surface-variant hover:text-primary" href="#">About Us</a></li>
+<li><a class="text-body-md font-body-md text-on-surface-variant hover:text-primary" href="#">Contact</a></li>
+<li><a class="text-body-md font-body-md text-on-surface-variant hover:text-primary" href="#">Careers</a></li>
+</ul>
+</div>
+</div>
+<div class="pt-6 border-t border-outline-variant/20 flex flex-col sm:flex-row justify-between items-center gap-4 text-label-sm font-label-sm text-on-surface-variant">
+<p>© 2024 AgriNova Analytics.</p>
+<div class="flex gap-4">
+<a href="#">Privacy</a>
+<a href="#">Terms</a>
+</div>
+</div>
+</footer>
+</main>
+</body></html>
