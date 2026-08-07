@@ -28,8 +28,11 @@ export const HistoricalAnalyticsPage: React.FC = () => {
 
   const { data: analytics } = useQuery({
     queryKey: ['analytics', firstFarm?.id, period],
-    queryFn: () => firstFarm ? analyticsService.getAnalytics(firstFarm.id, period) : Promise.reject(new Error('No farm available')),
-    enabled: !!firstFarm,
+    queryFn: async () => {
+      if (!firstFarm?.id) return null;
+      return analyticsService.getAnalytics(firstFarm.id, period);
+    },
+    enabled: !!firstFarm?.id,
   });
 
   const chartData = analytics?.data_points || [
